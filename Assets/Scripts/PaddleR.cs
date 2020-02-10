@@ -11,17 +11,23 @@ public class PaddleR : MonoBehaviour
     }
 
     // Update is called once per frame
-        public float speed = 20f;
+        public float speed = 25f;
     
         void Update () {
             Vector3 pos = transform.position;
     
             if (Input.GetKey ("o")) {
-                pos.x += speed * Time.deltaTime;
+                pos.y += speed * Time.deltaTime;
             }
             if (Input.GetKey ("l")) {
-                pos.x -= speed * Time.deltaTime;
+                pos.y -= speed * Time.deltaTime;
             }
             transform.position = pos;
+            if(transform.position.y < -35){
+                               transform.position = new Vector3(65f, -35f, 0f);
+                      }
+                  if(transform.position.y > 35){
+                               transform.position = new Vector3(65f, 35f, 0f);
+                  }
         }
 }
